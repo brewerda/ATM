@@ -1,65 +1,55 @@
-public class ATM {
-	private String name;
-	private int pin;
-	private int balance;
+import java.util.Scanner;
+
+public class checkAccount {
+
+	Account Bob = new Account("Bob","1234", 100);
+	Account Alice = new Account("Alice","3333",250);
+	Account JT = new Account("JT","0001",999999999);
+
+	public void checkLogin() {
+	String pin = "";
+	String name = "";
+	System.out.println("Please enter your account name: ");
+	Scanner name = new Scanner(System.in);
+	name = name.nextString();
+	
+
+	System.out.println("Please enter your PIN number: ");
+	Scanner pin = new Scanner(System.in);
+	pin = pin.nextString();
+
+	if ()
+
+	}
 
 
-	//Accounts Currently In Machine
-	public void bobAccount() {
-		this.name = "Bob";
-		this.pin = 1234;
-		this.balance = 100;
-	}
-	public void aliceAccount() {
-		this.name = "Alice";
-		this.pin = 3333;
-		this.balance = 250;
-	}
-	public void jTAccount() {
-		this.name = "JT";
-		this.pin = 0001;
-		this.balance = 999999999;
-	}
 
-	//Name Getter and Setter
-	public String name() {
-		return name;
-	}
-	public void getName(String name) {
-		if (name.length() >= 2 && name.length() <=7) {
-			this.name = name;
+	public void interface() {
+		System.out.println("What would you like to do?");
+		System.out.println("Enter 0 to Check Balance");
+		System.out.println("Enter 1 to Withdraw Funds");
+		System.out.println("Enter 2 to Change Name or Pin");
+		System.out.println("Enter 3 to Logout");
+
+
+		Scanner reader = new Scanner(System.in);
+		int response = reader.nextInt();
+
+		if (response == 0) {
+			checkBalance();
+		} else if (response == 1) {
+			withdraw();
+		} else if (response == 2) {
+			change();
+		} else if (response == 3) {
+			logout();
 		} else {
-			System.out.println("Name must be larger than 1 and less than 7 characters.");
+			System.out.println("Please enter the available options above.");
 		}
-	}
 
-	//Pin getter and setter
-	public int pin() {
-		return pin;
-	}
-	public void getPin(int pin) {
-		if (pin == 4) {
-			this.pin = pin;
-		} else {
-			System.out.println("You pin must be 4 numbers long!");
-		}
-	}
-	public int balance() {
-		return balance;
-	}
-	public void setBalance(int balance) {
-		if (balance > 0 && balance < 1000000000) {
-			this.balance = balance;
-		} else {
-			System.out.println("You must have a positive balance");
-			System.out.println("We do not insure more that 1 billion.");
-		}
-	}
 
-	public void ATM(String name, int pin, int balance) {
-		setName(name);
-		setPin(pin);
-		setBalance(balance);
-
+	}
+	public int checkBalance() {
+		
 	}
 }
