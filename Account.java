@@ -7,14 +7,25 @@ public class Account {
 
 	int[] accounts = {"Bob","Alice","JT"};
 	accounts[0] = account1();
+	accounts[1] = account2();
+	accounts[2] = account3();
 
 
 	public void account1() {
 		setName(name) = "Bob";
 		setPin(pin) = "1234";
-		setBalance(balance) = 100;
+		setBalance(balance) = "100";
 	}
-
+	public void account2() {
+		setName(name) = "Alice";
+		setPint(pin) = "3333";
+		setBalance(balance) = "250";
+	}
+	public void account3() {
+		setName(name) = "JT";
+		setPin(pin) = "0001";
+		setBalance(balance) = "999999999";
+	}
 
 	//Accounts Currently In Machine
 	// public void bobAccount() {
