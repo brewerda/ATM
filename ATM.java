@@ -1,12 +1,15 @@
 import java.util.Scanner;
 
 public class checkAccount {
+	private ATMaccount[] accounts;
+	private ATMaccount working;
 
-	Account Bob = new Account("Bob","1234", 100);
-	Account Alice = new Account("Alice","3333",250);
-	Account JT = new Account("JT","0001",999999999);
+	public ATM(ATMaccount[] accounts) {
+		this.accounts = accounts;
+	}
 
-	public void checkLogin() {
+
+	public void Login() {
 	String pin = "";
 	String name = "";
 	System.out.println("Please enter your account name: ");
@@ -18,9 +21,30 @@ public class checkAccount {
 	Scanner pin = new Scanner(System.in);
 	pin = pin.nextString();
 
-	if ()
+
+	for (int i=0; i<accounts.length; i++) {
+		if(this.accounts[i].getName().equals(name) && this.accounts[i].getPin() == pin) {
+			this.working = account;
+			System.out.println("Logged in for " + working.getName());
+			interface();
+		} else {
+			System.out.println("Failed Login");
+		}
+	}
+
+	
 
 	}
+
+	public void checkLogin(String name, int pin) {
+		for (int i=0; i<accounts.length; i++) {
+		if(this.accounts[i].getName().equals(name) && this.accounts[i].getPin() == pin) {
+			return accounts[i];
+		}
+	}
+		return "Invalid";
+	}
+
 
 
 
@@ -36,9 +60,21 @@ public class checkAccount {
 		int response = reader.nextInt();
 
 		if (response == 0) {
-			checkBalance();
+			System.out.println("Your current balance is: " + checkBalance());
 		} else if (response == 1) {
-			withdraw();
+			Scanner takeout = new Scanner(System.in);
+			System.out.println("How much money would you like to take out? ");
+			int takeout = takeout.nextInt();
+
+
+			if(takeout <= working.checkBalance()) {
+				int remaining = working.checkBalance() - takeout;
+				System.out.println("Successfully took out: " + takeout + " dollars");
+				System.out.println("You have " + remaining + " left in your account.");
+
+			} else if( takeout > working.checkBalance()) {
+				System.out.println("You do not have enough funds to take out that much.");
+			}
 		} else if (response == 2) {
 			change();
 		} else if (response == 3) {
@@ -50,6 +86,9 @@ public class checkAccount {
 
 	}
 	public int checkBalance() {
-		
+		return working.checkBalance();
+	}
+	public void logout() {
+		this.working = null;
 	}
 }
